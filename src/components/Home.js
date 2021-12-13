@@ -4,6 +4,8 @@ import ClassComponentExample from "./classComponentexample";
 import About from "./About";
 import Counter from "./Counter";
 import { useSelector } from "react-redux";
+import ClassComponentFetch from "./classComponentFetch";
+import Functionalfetch from "./functionalfetch";
 function Home(props) {
   const history = useHistory();
   const [localData, setLocaldata] = useState([]);
@@ -114,9 +116,12 @@ function Home(props) {
           </tbody>
         </table>
       )} */}
-      <ClassComponentExample name={header} />
-      <About onButtonClick={() => handleButtonClick()} /> 
-      <Counter />
+      {/* <ClassComponentExample name={header} /> */}
+      {/* <About onButtonClick={() => handleButtonClick()} />  */}
+      {/* <Counter /> */}
+      
+      {/* <ClassComponentFetch/> */}
+      <Functionalfetch/>
     </div>
   );
 }
