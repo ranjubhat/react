@@ -16,9 +16,13 @@ function About(props) {
         }
       case "reset":
         return { ...state, count: initialState.count };
+      default:
+        return state;
     }
   };
+
   const [localCount, dispatch] = useReducer(reducer, initialState);
+
   const params = useParams();
   console.log(params);
   return (

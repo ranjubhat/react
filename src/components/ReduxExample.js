@@ -6,7 +6,8 @@ import { getCount } from "../redux/selector/countSelector";
 function ReduxExample(props) {
   console.log(useLocation());
 
-  const { increment, decrement, count } = props;
+  const { increment2, decrement, count } = props;
+  console.log(decrement)
   const selector = useSelector(getCount);
   const dispatchHook = useDispatch();
   console.log(selector);
@@ -14,16 +15,19 @@ function ReduxExample(props) {
     <div>
       <input type="text" value={count} />
       <button onClick={() => dispatchHook(increment(5))}>Increment</button>
+        
       <button onClick={() => decrement(5)}>Decrement</button>
       {/* <button onClick={() => dispatch({ type: "reset" })}>Reset</button> */}
     </div>
   );
 }
+
 const mapStateToProps = (state) => {
   return {
     count: getCount(state),
   };
 };
+
 const mapDispatchToprops = (dispach) => {
   return {
     increment: (number) => dispach(increment(number)),

@@ -6,6 +6,7 @@ import {
   FETCH_USERS_FAILURE,
 } from "./actionTypes";
 import axios from "axios";
+
 export const increment = (number) => {
   return {
     type: INCREMENT,

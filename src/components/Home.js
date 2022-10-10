@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useHistory } from "react-router-dom";
 import ClassComponentExample from "./classComponentexample";
 import About from "./About";
@@ -6,12 +6,45 @@ import Counter from "./Counter";
 import { useSelector } from "react-redux";
 import ClassComponentFetch from "./classComponentFetch";
 import Functionalfetch from "./functionalfetch";
+import TreeView from "./TreeView";
+import { TreeData } from "../data";
 function Home(props) {
   const history = useHistory();
   const [localData, setLocaldata] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
   const [header, setHeader] = useState("text");
+
+
+  // let obj={op1:{op2:10}}
+  // const {op1:{op2=20}}=obj;
+
+  let array = [10, 20, 30, 20];
+  console.log([...new Set(array)]);
+
+  const [a,...rest]=array;
+  console.log(rest)
+
+  var arr1 = "john".split(''); //j o h n
+
+  console.log("after 1", arr1)
+  var arr2 = arr1.reverse(); //arr2 n h o j arr1
+  console.log("after 2",arr1, arr2)
+
+   var arr3 = "jones".split('');  // j o n e s
+   console.log("array 3", arr3)
+   arr2.push(arr3); // n h o j [ j o n e s]
+   console.log("after push", arr1,arr2)
+   //console.log(arr1.slice(-1),arr1.slice(-1).length)
+  //  console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));//4 n
+  // console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
+
+
+varCheck=20;
+console.log(varCheck);
+var varCheck;
+
+
 
   const useDebouncedEffect = (effect, dependency) => {
     const callback = useCallback(effect, dependency);
@@ -58,6 +91,8 @@ function Home(props) {
       .then((response) => response.json())
       .then((data) => data)
       .catch((error) => console.log(error));
+
+      
   };
 
   const fetchFunction = () => {
@@ -86,13 +121,13 @@ function Home(props) {
   //Fetch using async await
 
   const handleButtonClick = () => {
-    setHeader((prevState) => prevState.header + "1");
-    //setHeader("hiii")
+    //setHeader((prevState) =>{ return {prevState.header + "1"});
+    setHeader(header+"hii")
   };
 
   return (
     <div>
-      {/* {isLoading ? (
+      {isLoading ? (
         <h1>Loading...</h1>
       ) : error ? (
         <h2>{error}</h2>
@@ -115,13 +150,18 @@ function Home(props) {
             })}
           </tbody>
         </table>
-      )} */}
-      {/* <ClassComponentExample name={header} /> */}
-      {/* <About onButtonClick={() => handleButtonClick()} />  */}
-      {/* <Counter /> */}
+      )}
+
+
       
+      {/* <ClassComponentExample name={header} />
+      <About onButtonClick={() => handleButtonClick()} /> */}
+      {/* <Counter /> */}
       {/* <ClassComponentFetch/> */}
-      <Functionalfetch/>
+      
+      {/* <Functionalfetch /> */}
+
+      <TreeView treeData={TreeData}/>
     </div>
   );
 }

@@ -19,6 +19,7 @@ function AsyncAwaitComponent(props) {
       }, 1000);
     });
   };
+  
   const loginPromise = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {

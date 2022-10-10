@@ -12,13 +12,14 @@ class ClassComponentFetch extends Component {
   fetchUsingAxios = () => {
     axios
       .get("https://api.sampleapis.com/futurama/info")
-      .then((response) =>
-      {
-      console.log(response)
-        this.setState({ localData: response.data[0]?.creators||[], loading: false })
-      }
-      )
-    
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          localData: response.data[0]?.creators || [],
+          loading: false,
+        });
+      })
+
       .catch((error) =>
         this.setState({ loading: false, error: error.message })
       );

@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
@@ -9,6 +9,11 @@ import ContextParent from "./components/ContextParent";
 import ReduxExample from "./components/ReduxExample";
 import ClassComponentExample from "./components/classComponentexample";
 import Async from "./components/Async";
+import FileDownload from "./components/FileDownload";
+import Practice from "./components/Practice";
+import TreeView from "./components/TreeView";
+import ComponentDisplay from "./components/ComponentDisplay";
+import CallBindApply from "./components/CallBindApply";
 function App() {
   let array1 = [10, 20, 30, 40];
   //console.log("SPLICE return", array1.splice(0, 2)); // Returns [10,20]
@@ -27,6 +32,11 @@ function App() {
         <Route path="/redux" component={ReduxExample} />
         <Route path="/classcomponent" component={ClassComponentExample}/>
         <Route path="/async" component={Async}/>
+        <Route path="/download" component={FileDownload}/>
+        <Route path="/practice" component={Practice}/>
+        <Route path="/treeview" component={TreeView}/>
+        <Route path="/freelance" component={ComponentDisplay}/>
+        <Route path="/callbind" component={CallBindApply}/>
         <Route component={NotFound} />
       </Switch>
     </Router>

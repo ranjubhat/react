@@ -23,6 +23,7 @@ export default class ClassComponentExample extends Component {
     this.setState((prevState) => ({
       inputText: "Hi"
     }));
+    //this.setState({inputText:"Hii"})
     // console.log("textchange");
   }
   render() {

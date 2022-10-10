@@ -1,3 +1,3 @@
 export const getCount=(state)=>{
-    return state.count.count;
+    return state.countState.count;
 }
